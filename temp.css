@@ -19,8 +19,8 @@
     position: absolute;
     background: linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
     width: 100%;
-    height: $truncationOverlayheight;
-    margin-top: -1 * $truncationOverlayheight;
+    height: 80px;
+    margin-top: -1 * 80px;
 }
 
 .content__truncator {
