@@ -1,0 +1,28 @@
+
+.truncated {
+    position: relative;
+}
+
+.truncated > *:nth-child(n+6) {
+    display: none;
+}
+
+.truncated .element-rich-link {
+    display: none;
+}
+
+.truncated .content__truncator {
+    display: block;
+}
+
+.truncated .content__truncator .content__truncator__overlay {
+    position: absolute;
+    background: linear-gradient(top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    width: 100%;
+    height: $truncationOverlayheight;
+    margin-top: -1 * $truncationOverlayheight;
+}
+
+.content__truncator {
+    display: none;
+}
