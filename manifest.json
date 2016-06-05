@@ -1,6 +1,6 @@
 {
   "name": "Wonderwall",
-  "description": "Two-Thirds_Free paywall",
+  "description": "Two-Thirds-Free paywall",
   "version": "1.0",
   "content_scripts": [
     {
