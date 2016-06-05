@@ -1,19 +1,17 @@
 (function() {
 
-    var freePortion = 0.666,
+    var paidPortion = 0.3,
         articleBodyClass = '.js-article__body',
-        articleBody  = document.querySelector(articleBodyClass),
-        oldClassName,
-        availableParas,
-        visibleParas,
-        style;
+        articleBody  = document.querySelector(articleBodyClass);
 
     if(!articleBody) { return; }
 
-    oldClassName = articleBody.className;
-    availableParas = (document.querySelectorAll(articleBodyClass + ' > *') || []).length;
-    visibleParas = Math.ceil(availableParas * freePortion);
-    style = document.createElement('style');
+    var oldClassName = articleBody.className,
+        availableParas = (document.querySelectorAll(articleBodyClass + ' > p') || []).length,
+        paidParas = Math.floor(availableParas * paidPortion),
+        availableChildren = (document.querySelectorAll(articleBodyClass + ' > *') || []).length,
+        visibleChildren = availableChildren - paidParas,
+        style = document.createElement('style');
 
     function truncate() {
         var button,
@@ -23,7 +21,7 @@
                     '<i class="i i-plus-white"></i> Continue reading...' +
                 '</button>' +
             '</div>',
-            css = ".truncated{position:relative}.truncated > *:nth-child(n+" + visibleParas + "){display:none}.truncated .element-rich-link{display:none}.truncated .content__truncator{display:block}.truncated .content__truncator .content__truncator__overlay{position:absolute;background:linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);width:100%;height:80px;margin-top:-80px}.content__truncator{display:none}";
+            css = ".truncated{position:relative}.truncated > *:nth-child(n+" + visibleChildren + "){display:none}.truncated .element-rich-link{display:none}.truncated .content__truncator{display:block}.truncated .content__truncator .content__truncator__overlay{position:absolute;background:linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);width:100%;height:80px;margin-top:-80px}.content__truncator{display:none}";
 
         style.type = 'text/css';
         style.innerHTML = css;
@@ -35,14 +33,14 @@
         button = document.querySelector(".button--untruncator");
         button.addEventListener("click", unTruncate, false);
 
-        console.log(visibleParas + '/' + availableParas)
+        console.log(availableChildren + '/' + availableParas + '/' + visibleChildren);
     }
 
     function unTruncate() {
         articleBody.className = oldClassName;
     }
 
-    if (availableParas - visibleParas > 1) {
+    if (paidParas) {
         truncate();
     }
 })()
