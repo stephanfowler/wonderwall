@@ -21,8 +21,8 @@
                     '<div class="untruncator__cta">&raquo;</div>' +
                     '<b>Finish reading ...</b><br/>' +
                     '<div class="untruncator__desc">' +
-                        '<b>Two-thirds of the article is always FREE</b>. <br>' + 
-                        'Read the rest for only 15p. <br/><br/>' +
+                        '<b>The first two-thirds of an article is ALWAYS FREE</b>. <br>' + 
+                        'Read the rest for only 15p. <br/>' +
                         'You\'ll never be charged more than £4 per week. ' +
                         'You\'ve spent £1.65 so far.' +
                     '</div>' +
