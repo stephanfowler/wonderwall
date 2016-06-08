@@ -1,6 +1,6 @@
 (function() {
 
-    var paidPortion = 0.3,
+    var paidPortion = 0.25,
         articleBodyClass = '.js-article__body',
         articleBody  = document.querySelector(articleBodyClass);
 
@@ -28,12 +28,19 @@
                     '</div>' +
                 '</div>' +
             '</div>',
-            css = ".truncated{position:relative}.truncated > *:nth-child(n+" + visibleChildren + "){display:none}.truncated .element-rich-link{display:none}.truncated .content__truncator{display:block}.truncated .content__truncator .content__truncator__overlay{position:absolute;background:linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);width:100%;height:80px;margin-top:-80px}.content__truncator{display:none}" + 
+            css = ".truncated {position:relative}" + 
+                  
+            ".truncated > *:nth-child(n+" + visibleChildren + ") {display:none}" + 
+            ".truncated .content__truncator {display:block; margin-top: -15px;}" + 
+            ".truncated .content__truncator .content__truncator__overlay {position:absolute;background:linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);width:100%;height:80px; margin-top: -90px; border-bottom: 10px solid #fff;}" + 
             
-            ".untruncator {cursor: pointer; background: #59cb3f; color: #fff;font-family: 'Guardian Text Sans Web',sans-serif; font-size: 1.2rem; line-height: 2rem; padding: 5px 10px 10px 10px; margin: 10px 0 20px 0;}" +
+            ".content__truncator {display:none}" + 
+            
+            ".untruncator {transition: all .5s; cursor: pointer; background: #59cb3f; color: #fff;font-family: 'Guardian Text Sans Web',sans-serif; font-size: 1.5:rem; line-height: 2rem; padding: 5px 10px 10px 10px; margin: 0 0 20px 0;}" +
             ".untruncator__desc {font-size: 0.85rem; line-height: 1rem;}" + 
-            ".untruncator__cta {float: right; font-size: 40px; margin: -4px 0 0 0;}";
+            ".untruncator__cta {float: right; font-size: 80px; margin: 11px 0 0 0; transform: rotate(90deg);}" +
 
+            ".element-rich-link {display:none}"; 
 
 
         style.type = 'text/css';
@@ -43,14 +50,19 @@
         articleBody.className = oldClassName + ' truncated';
         articleBody.insertAdjacentHTML('beforeend', truncator);
 
-        button = document.querySelector(".untruncator");
+        button = document.querySelector(".content__truncator");
         button.addEventListener("click", unTruncate, false);
 
         console.log(availableChildren + '/' + availableParas + '/' + visibleChildren);
     }
 
     function unTruncate() {
-        articleBody.className = oldClassName;
+        this.style.transition = "all 200ms";
+	this.style.opacity = "0";
+        this.style.transform = "rotateX(90deg)";
+        setTimeout(function() {
+            articleBody.className = oldClassName;
+        }, 200);
     }
 
     if (paidParas) {
