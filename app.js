@@ -36,9 +36,9 @@
             
             ".content__truncator {display:none}" + 
             
-            ".untruncator {transition: all .5s; cursor: pointer; background: #59cb3f; color: #fff;font-family: 'Guardian Text Sans Web',sans-serif; font-size: 1.5:rem; line-height: 2rem; padding: 5px 10px 10px 10px; margin: 0 0 20px 0;}" +
+            ".untruncator {transition: all .5s; cursor: pointer; background: #4a7801; color: #fff;font-family: 'Guardian Text Sans Web',sans-serif; font-size: 1.5rem; line-height: 2.5rem; padding: 2px 10px 10px 10px; margin: 0 0 20px 0;}" +
             ".untruncator__desc {font-size: 0.85rem; line-height: 1rem;}" + 
-            ".untruncator__cta {float: right; font-size: 80px; margin: 11px 0 0 0; transform: rotate(90deg);}" +
+            ".untruncator__cta {float: right; font-size: 100px; margin: 15px 0 0 0; transform: rotate(90deg); opacity: 0.5;}" +
 
             ".element-rich-link {display:none}"; 
 
@@ -62,7 +62,7 @@
         this.style.transform = "rotateX(90deg)";
         setTimeout(function() {
             articleBody.className = oldClassName;
-        }, 200);
+        }, 400);
     }
 
     if (paidParas) {
