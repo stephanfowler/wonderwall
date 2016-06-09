@@ -30,8 +30,8 @@
                     '<div class="untruncator__desc">' +
                         //'<b>The first two-thirds of an article are ALWAYS FREE</b>. ' + 
                         '<b>Two thirds free</b>. Always. ' + 
-                        'Read the rest for only ' + feePence + 'p.  <br/>' +
-                        'You\'ll never be charged more than £' + feeMax/100  + ' per week. After ' + (feeMax/feePence)  + ' articles they\'re all free. <br/>' +
+                        'The rest is only ' + feePence + 'p.  <br/>' +
+                        'You\'ll never be charged more than £' + feeMax/100  + ' per week. After ' + (feeMax/feePence)  + ' articles they\'re free. <br/>' +
                     	'<span class="untruncator__button">Finish reading for 20p</span> ' +
                     	(tally > 0 && tally < feeMax ? 'You\'ve spent £' + (tally/100).toFixed(2) + ' so far.' : '') +
                     '</div>' +
