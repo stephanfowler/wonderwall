@@ -28,8 +28,7 @@
                     '<div class="untruncator__cta">⬇</div>' +
                     '<div class="untruncator__title">Finish reading ...</div>' +
                     '<div class="untruncator__desc">' +
-                        //'<b>The first two-thirds of an article are ALWAYS FREE</b>. ' + 
-                        '<b>Two thirds free</b>. Always. ' + 
+                        '<b>Two thirds are free</b>. Always. ' + 
                         'The rest is only ' + feePence + 'p.  <br/>' +
                         'You\'ll never be charged more than £' + feeMax/100  + ' per week. After ' + (feeMax/feePence)  + ' articles they\'re free. <br/>' +
                     	'<span class="untruncator__button">Finish reading for 20p</span> ' +
