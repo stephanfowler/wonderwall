@@ -1,8 +1,8 @@
 (function() {
 
     var paidPortion = 0.25,
-        feePence = 19,
-        feeMax = 200,
+        feePence = 20,
+        feeMax = 400,
         articleBodyClass = '.js-article__body',
         articleBody  = document.querySelector(articleBodyClass);
 
@@ -25,13 +25,15 @@
             truncator = '<div class="content__truncator">' +
                 '<div class="content__truncator__overlay"></div>' +
                 '<div class="untruncator">' +
-                    '<div class="untruncator__cta">&raquo;</div>' +
-                    '<b>Finish reading ...</b><br/>' +
+                    '<div class="untruncator__cta">⬇</div>' +
+                    '<div class="untruncator__title">Finish reading ...</div>' +
                     '<div class="untruncator__desc">' +
-                        '<b>The first two-thirds of an article are ALWAYS FREE</b>. <br>' + 
-                        'Read the rest for only ' + feePence + 'p. <br/>' +
-                        'You\'ll never be charged more than £' + feeMax/100  + ' per week. ' +
-                        (tally > 0 && tally < feeMax ? 'You\'ve spent £' + (tally/100)  + ' so far.' : '') +
+                        //'<b>The first two-thirds of an article are ALWAYS FREE</b>. ' + 
+                        '<b>Two thirds free</b>. Always. ' + 
+                        'Read the rest for only ' + feePence + 'p.  <br/>' +
+                        'You\'ll never be charged more than £' + feeMax/100  + ' per week. After ' + (feeMax/feePence)  + ' articles they\'re all free. <br/>' +
+                    	'<span class="untruncator__button">Finish reading for 20p</span> ' +
+                    	(tally > 0 && tally < feeMax ? 'You\'ve spent £' + (tally/100).toFixed(2) + ' so far.' : '') +
                     '</div>' +
                 '</div>' +
             '</div>',
@@ -43,9 +45,12 @@
             
             ".content__truncator {display:none}" + 
             
-            ".untruncator {transition: all .5s; cursor: pointer; background: #4a7801; color: #fff;font-family: 'Guardian Text Sans Web',sans-serif; font-size: 1.5rem; line-height: 2.5rem; padding: 2px 10px 10px 10px; margin: 0 0 20px 0;}" +
-            ".untruncator__desc {font-size: 0.85rem; line-height: 1rem;}" + 
-            ".untruncator__cta {float: right; font-size: 100px; margin: 15px 0 0 0; transform: rotate(90deg); opacity: 0.5;}" +
+            ".untruncator {position: relative; transition: transform .5s; cursor: pointer; margin: 0 0 20px 0;}" +
+            ".untruncator:hover {opacity: .85;}" +
+            ".untruncator__title {padding: 2px 10px 0px 10px; background: #4a7801; color: #fff; font-size: 1.3rem; line-height: 2.3rem; font-weight: 900;}" + 
+            ".untruncator__desc  {padding: 20px 10px 10px 10px; font-family: 'Guardian Text Sans Web',sans-serif; background: #eeeeee; color: #4a7801; font-size: 0.95rem; line-height: 1.3rem;}" + 
+            ".untruncator__cta {position: absolute; right: 3px; top: -12px; color: #4a7801; font-size: 60px;}" +
+            ".untruncator__button {margin: 20px 5px 0 0; display: inline-block; background: #ccc; padding: 5px 12px 4px 12px; border-radius: 15px; color: #fff; background: #4a7801;}" +
 
             ".element--supporting {display:none}" + 
             ".element-rich-link {display:none}"; 
