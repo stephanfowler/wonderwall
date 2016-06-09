@@ -2,7 +2,7 @@
 
     var paidPortion = 0.25,
         feePence = 19,
-        feeMax = 100,
+        feeMax = 200,
         articleBodyClass = '.js-article__body',
         articleBody  = document.querySelector(articleBodyClass);
 
@@ -51,17 +51,19 @@
             ".element-rich-link {display:none}"; 
 
 
-        style.type = 'text/css';
-        style.innerHTML = css;
-        document.getElementsByTagName('head')[0].appendChild(style);
+        if (tally < feeMax) {
+           style.type = 'text/css';
+           style.innerHTML = css;
+           document.getElementsByTagName('head')[0].appendChild(style);
 
-        articleBody.className = oldClassName + ' truncated';
-        articleBody.insertAdjacentHTML('beforeend', truncator);
+           articleBody.className = oldClassName + ' truncated';
+           articleBody.insertAdjacentHTML('beforeend', truncator);
 
-        button = document.querySelector(".content__truncator");
-        button.addEventListener("click", unTruncate, false);
+           button = document.querySelector(".content__truncator");
+           button.addEventListener("click", unTruncate, false);
 
-        console.log(availableChildren + '/' + availableParas + '/' + visibleChildren);
+           console.log(availableChildren + '/' + availableParas + '/' + visibleChildren);
+	}
     }
 
     function unTruncate() {
