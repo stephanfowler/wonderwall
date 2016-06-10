@@ -13,6 +13,7 @@
     if (!articleBody) { return; }
 
     var tally = parseInt(window.localStorage.getItem("wonderwall") || 0),
+        finished = tally/feePence,
         oldClassName = articleBody.className,
         availableParas = (document.querySelectorAll(articleBodyClass + ' > p') || []).length,
         paidParas = Math.floor(availableParas * paidPortion),
@@ -26,13 +27,14 @@
                 '<div class="content__truncator__overlay"></div>' +
                 '<div class="untruncator">' +
                     '<div class="untruncator__cta">⬇</div>' +
-                    '<div class="untruncator__title">Finish reading ...</div>' +
+                    //'<div class="untruncator__title">Finish reading ...</div>' +
                     '<div class="untruncator__desc">' +
-                        '<b>Two thirds are free</b>. Always. ' + 
-                        'The rest is only ' + feePence + 'p.  <br/>' +
-                        'You\'ll never be charged more than £' + feeMax/100  + ' per week. After ' + (feeMax/feePence)  + ' articles they\'re free. <br/>' +
+                        '<b>The first two thirds of a Guardian article are ALWAYS FREE.</b> <br/>' + 
                     	'<span class="untruncator__button">Finish reading for 20p</span> ' +
-                    	(tally > 0 && tally < feeMax ? 'You\'ve spent £' + (tally/100).toFixed(2) + ' so far.' : '') +
+                    	(tally > 0 && tally < feeMax ? 'You\'ve finished ' + finished + ' article' + (finished > 1 ? 's' : '') + ' so far.' : '') +
+                        //'Finish it for only ' + feePence + 'p.  <br/>' +
+                        '<br/>After ' + (feeMax/feePence)  + ' articles per week they\'re fully free. ' +
+                        'So you\'ll never be charged more than £' + feeMax/100  + '. ' +
                     '</div>' +
                 '</div>' +
             '</div>',
@@ -44,12 +46,12 @@
             
             ".content__truncator {display:none}" + 
             
-            ".untruncator {position: relative; transition: transform .5s; cursor: pointer; margin: 0 0 20px 0;}" +
+            ".untruncator {border-top: 5px solid #4a7801; position: relative; transition: transform .5s; cursor: pointer; margin: 0 0 20px 0; background: #eeeeee;}" +
             ".untruncator:hover {opacity: .85;}" +
-            ".untruncator__title {padding: 2px 10px 0px 10px; background: #4a7801; color: #fff; font-size: 1.3rem; line-height: 2.3rem; font-weight: 900;}" + 
-            ".untruncator__desc  {padding: 20px 10px 10px 10px; font-family: 'Guardian Text Sans Web',sans-serif; background: #eeeeee; color: #4a7801; font-size: 0.95rem; line-height: 1.3rem;}" + 
-            ".untruncator__cta {position: absolute; right: 3px; top: -12px; color: #4a7801; font-size: 60px;}" +
-            ".untruncator__button {margin: 20px 5px 0 0; display: inline-block; background: #ccc; padding: 5px 12px 4px 12px; border-radius: 15px; color: #fff; background: #4a7801;}" +
+            ".untruncator__title {padding: 2px 10px 0px 10px; color: #4a7801; font-size: 1.5rem; font-weight: 900;}" +
+            ".untruncator__desc  {padding: 10px 10px 10px 10px; font-family: 'Guardian Text Sans Web',sans-serif; color: #4a7801; font-size: 0.95rem; line-height: 1.3rem;}" + 
+            ".untruncator__cta {position: absolute; right: 3px; top: -16px; color: #4a7801; font-size: 60px;}" +
+            ".untruncator__button {margin: 10px 5px 10px 0; display: inline-block; font-weight:bold; background: #ccc; padding: 5px 12px 4px 12px; border-radius: 15px; color: #fff; background: #4a7801;}" +
 
             ".element--supporting {display:none}" + 
             ".element-rich-link {display:none}"; 
