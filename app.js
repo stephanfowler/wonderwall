@@ -46,7 +46,7 @@
             
             ".content__truncator {display:none}" + 
             
-            ".untruncator {border-top: 5px solid #4a7801; position: relative; transition: transform .5s; cursor: pointer; margin: 0 0 20px 0; background: #eeeeee;}" +
+            ".untruncator {border-top: 5px solid #4a7801; position: relative; transition: transform .5s; cursor: pointer; margin: 0 0 80px 0; background: #eeeeee;}" +
             ".untruncator:hover {opacity: .85;}" +
             ".untruncator__title {padding: 2px 10px 0px 10px; color: #4a7801; font-size: 1.5rem; font-weight: 900;}" +
             ".untruncator__desc  {padding: 10px 10px 10px 10px; font-family: 'Guardian Text Sans Web',sans-serif; color: #4a7801; font-size: 0.95rem; line-height: 1.3rem;}" + 
@@ -55,7 +55,6 @@
 
             ".element--supporting {display:none}" + 
             ".element-rich-link {display:none}"; 
-
 
         if (tally < feeMax) {
            style.type = 'text/css';
